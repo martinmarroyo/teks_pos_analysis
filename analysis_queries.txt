@@ -1,0 +1,104 @@
+/* 
+
+Noise lemmas identified:
+
+base
+include
+contain
+expect
+use
+be
+intend 
+
+*/
+
+
+-- Identifying noise (helper)
+SELECT 
+	tek_statement 
+FROM teks_statements_verbs
+WHERE verbs  LIKE '%base%' -- Insert suspected noise here
+
+
+-- Verb summary stats
+SELECT
+	COUNT(DISTINCT verb) AS total_verbs,
+	COUNT(DISTINCT grade) AS total_grades,
+	COUNT(DISTINCT subject) AS total_subjects
+FROM verb_frequency_all
+-- Eliminate noise
+WHERE verb NOT IN ('base','include','contain',
+				   'expect','use','be','intend');
+				   
+				   
+-- Total TEKS statements for grade 4-6
+SELECT
+	COUNT(tek_statement)
+FROM teks_statements_verbs
+
+
+-- Verb frequency across all of TEKS
+SELECT
+	verb,
+	SUM(frequency) AS total_frequency
+FROM verb_frequency_all
+-- Eliminate noise
+WHERE verb NOT IN ('base','include','contain',
+				   'expect','use','be','intend')
+GROUP BY verb
+ORDER BY total_frequency DESC;
+
+
+-- Verb frequency across grades and subject
+SELECT
+	verb,
+	COUNT(DISTINCT grade) AS grades_found_in,
+	COUNT(DISTINCT subject) AS subjects_found_in
+FROM verb_frequency_all
+-- Eliminate noise
+WHERE verb NOT IN ('base','include','contain',
+				   'expect','use','be','intend')
+GROUP BY verb
+ORDER BY grades_found_in DESC, subjects_found_in DESC;
+
+
+-- Verbs found in each grade that are in more than one subject
+SELECT
+	DISTINCT verb,
+	grade,
+	COUNT(subject) AS num_of_subjects
+FROM verb_frequency_all
+-- Eliminate noise
+WHERE verb NOT IN ('base','include','contain',
+				   'expect','use','be','intend')
+GROUP BY verb,grade
+HAVING COUNT(subject) > 1
+ORDER BY grade,num_of_subjects DESC, verb;
+
+
+-- Verbs found in each subject that are in more than one grade
+SELECT
+	DISTINCT verb,
+	subject,
+	COUNT(grade) AS num_of_grades
+FROM verb_frequency_all
+-- Eliminate noise
+WHERE verb NOT IN ('base','include','contain',
+				   'expect','use','be','intend')
+GROUP BY verb,subject
+HAVING COUNT(grade) > 1
+ORDER BY subject,num_of_grades DESC, verb;
+
+
+-- Verbs and their associated TEKS statements
+SELECT
+	vfa.verb,
+	tsv.grade,
+	tsv.subject,
+	tsv.tek_statement
+FROM verb_frequency_all vfa
+INNER JOIN teks_statements_verbs tsv
+ON tsv.verbs LIKE '%' || vfa.verb || '%'
+-- Eliminate noise
+WHERE vfa.verb NOT IN ('base','include','contain',
+				       'expect','use','be','intend')
