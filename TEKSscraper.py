@@ -5,13 +5,6 @@ import pandas as pd
 import time
 import json
 
-# TEKS Chapters and Rules contains the necessary pointers to the rule and chapter that we need. 
-# It also has the grade levels and subject that we want to work on.
-f = open('directories.json',)
-paths = json.load(f)
-csv_path= paths['path_to_teks_ch_rules']
-teks_ch_rules = pd.read_csv(csv_path)
-
 
 """
 Loading the TEKS chapters and rules and iterating over it to extract the data
@@ -32,6 +25,14 @@ The general idea is to:
 
 
 if __name__ == '__main__':
+    
+    # TEKS Chapters and Rules contains the necessary pointers to the rule and chapter that we need. 
+    # It also has the grade levels and subject that we want to work on.
+    f = open('directories.json',)
+    paths = json.load(f)
+    csv_path= paths['path_to_teks_ch_rules']
+    teks_ch_rules = pd.read_csv(csv_path)
+    
     for index,row in teks_ch_rules.iterrows():
         # Extract row information
         subject = row['Subject']
