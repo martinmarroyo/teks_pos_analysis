@@ -42,7 +42,11 @@ The model that is used with Spacy to parse our skill verbs is `en_core_web_sm`. 
 
 ### Outcome, Deliverables, and Impact
 
-Overall, the project was a success. I was able to create a visual tool using Tableau with the data that was extracted which Celebrate Dyslexia were able to use to help create their curriculum. Because of this, the organization was able to save $7,888 which could be used for other essential needs.
+Overall, the project was a success. I was able to create a visual tool using Tableau with the data that was extracted which Celebrate Dyslexia were able to use to help create their curriculum. Because of this, the organization was able to save $7,888 which could be used for other essential needs. [Read more about my impact here.](https://www.catchafire.org/impact/match/2824664/celebrate-dyslexia--survey-results-analysis/)
 
-- [Click here to see the final deliverable](https://public.tableau.com/shared/S6FHZFYXS?:display_count=n&:origin=viz_share_link)
-- [Click here to read more about my impact on the organization through this project](https://www.catchafire.org/impact/match/2824664/celebrate-dyslexia--survey-results-analysis/)
+
+**Sample of Final Deliverable**
+
+[Click here to see the full deliverable on Tableau Public](https://public.tableau.com/shared/S6FHZFYXS?:display_count=n&:origin=viz_share_link)
+
+![final deliverable](assets/finaldeliverable.png)
