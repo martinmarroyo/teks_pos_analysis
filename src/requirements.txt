@@ -1,0 +1,6 @@
+pandas
+spacy>=3.6.1,<3.7.0
+pyyaml
+beautifulsoup4
+html5lib
+loguru

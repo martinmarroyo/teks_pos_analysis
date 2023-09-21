@@ -1,0 +1,4 @@
+teks_ch_rules_dir: data/TEKSChaptersRules.csv
+teks_output_dir: teks_output
+teks_analysis_output_dir: teks_analysis_output
+delay_seconds: 10
