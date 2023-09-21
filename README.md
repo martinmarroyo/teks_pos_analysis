@@ -30,10 +30,19 @@ We will be grabbing the TEKS statements from each Chapter and Rule associated wi
 
 ### Description of code and programming libraries used
 
-The primary libraries used in this project are Pandas, BeautifulSoup, and Spacy. Pandas is used for creating our data models and writing them to CSV files. BeautifulSoup is used for the scraping and text extraction from the TEKS website. Spacy is used for conducting the sentiment analysis on the TEKS statements.
+The primary libraries used in this project are Pandas, BeautifulSoup, and Spacy. Pandas is used for structuring our data and writing to storage as CSV files. BeautifulSoup is used for the scraping and text extraction from the TEKS website. Spacy is used for conducting the sentiment analysis on the TEKS statements.
 
 There are four files that all work together to perform the extraction and analysis: 
-- [TEKSextraction](https://github.com/martinmarroyo/teks_pos_analysis/blob/main/TEKSextraction.py) handles the work of scraping and extracting the text data from the website. 
-- [TEKStransform](https://github.com/martinmarroyo/teks_pos_analysis/blob/main/TEKStransform.py) does the work of transforming the extracted data as required. It transforms individual lines from TEKS into their full statements, and a collection of statements into a full TEKS chapter(subject) and rule(grade).
-- [TEKSanalyze](https://github.com/martinmarroyo/teks_pos_analysis/blob/main/TEKSanalyze.py) is responsible for the extraction and analysis of verbs from the TEKS statements.
-- [TEKSscraper](https://github.com/martinmarroyo/teks_pos_analysis/blob/main/TEKSscraper.py) drives the program. This is where all of the functionality in the other scripts are used to actually run the extraction, transformation, and loading (ETL) of the data from TEKS. 
+- [TEKSextraction](https://github.com/martinmarroyo/teks_pos_analysis/blob/main/src/utils/TEKSextraction.py) handles the work of scraping and extracting the text data from the website. 
+- [TEKStransform](https://github.com/martinmarroyo/teks_pos_analysis/blob/main/src/utils/TEKStransform.py) does the work of transforming the extracted data as required. It transforms individual lines from TEKS into their full statements, and a collection of statements into a full TEKS chapter(subject) and rule(grade).
+- [TEKSanalyze](https://github.com/martinmarroyo/teks_pos_analysis/blob/main/src/utils/TEKSanalyze.py) is responsible for the extraction and analysis of verbs from the TEKS statements.
+- [main](https://github.com/martinmarroyo/teks_pos_analysis/blob/main/src/main.py) drives the program. This is where all of the functionality in the other scripts are used to actually run the extraction, transformation, and loading (ETL) of the data from TEKS. 
+
+The model that is used with Spacy to parse our skill verbs is `en_core_web_sm`. The documenation for that can be [found here](https://spacy.io/models/en#en_core_web_sm).
+
+### Outcome, Deliverables, and Impact
+
+Overall, the project was a success. I was able to create a visual tool using Tableau with the data that was extracted which Celebrate Dyslexia were able to use to help create their curriculum. Because of this, the organization was able to save $7,888 which could be used for other essential needs.
+
+- [Click here to see the final deliverable](https://public.tableau.com/shared/S6FHZFYXS?:display_count=n&:origin=viz_share_link)
+- [Click here to read more about my impact on the organization through this project](https://www.catchafire.org/impact/match/2824664/celebrate-dyslexia--survey-results-analysis/)
