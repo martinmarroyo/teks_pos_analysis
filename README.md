@@ -26,7 +26,7 @@ include SEs that focus on processes.
 
 The TEKS is outlined in [Title 19, Part 2 of the Texas Administrative Code](https://texreg.sos.state.tx.us/public/readtac$ext.ViewTAC?tac_view=3&ti=19&pt=2). Chapters 110-130 cover each of the subject areas for the TEKS. Within each Chapter are Rules, which is where we find the TEKS statements for a single grade and subject (located at subtitle (b) in each rule.) For this reason, Chapters and synonymous with Subjects, and Rules are synonymous with Grades in this project. 
 
-We will be grabbing the TEKS statements from each Chapter and Rule associated with grades 4 through 8. The [TEKSChaptersRules.csv](https://github.com/martinmarroyo/teks_pos_analysis/blob/main/TEKSChaptersRules.csv) contains a breakdown of the Chapters and Rules that will need to be extracted by the scraper. 
+We will be grabbing the TEKS statements from each Chapter and Rule associated with grades 4 through 8. The [TEKSChaptersRules.csv](https://github.com/martinmarroyo/teks_pos_analysis/blob/main/src/data/TEKSChaptersRules.csv) contains a breakdown of the Chapters and Rules that will need to be extracted by the scraper. 
 
 ### Description of code and programming libraries used
 
